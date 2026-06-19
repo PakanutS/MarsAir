@@ -22,4 +22,4 @@ Add Promptional Code
 Get Result Text
     Wait Until Element Is Visible    ${search_result_lbl}    timeout=10s
     ${result}=    Get Text    ${search_result_lbl}
-    [Return]      ${result}
+    RETURN      ${result}

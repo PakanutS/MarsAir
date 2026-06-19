@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on darwin)" generated="2026-06-19T00:29:53.104435" rpa="false" schemaversion="5">
+<suite id="s1" name="TC welcome" source="/Users/pakanutsunantaraks/Desktop/testing/RobotTest/MarsAir/testCases/TC_welcome.robot">
+<kw name="Open Marsair" owner="commonKeyword" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-19T00:29:53.192644" level="INFO">Opening browser 'Chrome' to base url 'https://marsair.recruiting.thoughtworks.net/pakanut_sunantaraks'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-19T00:29:53.192489" elapsed="3.426881"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${welcome_to_mar_air_lbl}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-19T00:29:56.620348" elapsed="0.021435"/>
+</kw>
+<status status="PASS" start="2026-06-19T00:29:53.192125" elapsed="3.449839"/>
+</kw>
+<test id="s1-t1" name="Verify Available Seat" line="17">
+<kw name="Select Departure" owner="welcomePageKeyword">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-06-19T00:29:56.643472" level="INFO">Selecting options from selection list 'id=departing' by label July.</msg>
+<arg>id=departing</arg>
+<arg>${month}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-06-19T00:29:56.643268" elapsed="0.035903"/>
+</kw>
+<arg>${DATE_JUL_2026}</arg>
+<status status="PASS" start="2026-06-19T00:29:56.642931" elapsed="0.036387"/>
+</kw>
+<kw name="Select Return" owner="welcomePageKeyword">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-06-19T00:29:56.680185" level="INFO">Selecting options from selection list 'id=returning' by label December (next year).</msg>
+<arg>id=returning</arg>
+<arg>${month}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-06-19T00:29:56.679918" elapsed="0.027956"/>
+</kw>
+<arg>${DATE_DEC_2027}</arg>
+<status status="PASS" start="2026-06-19T00:29:56.679573" elapsed="0.028433"/>
+</kw>
+<kw name="Click Search" owner="welcomePageKeyword">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-19T00:29:56.708904" level="INFO">Clicking button 'xpath=//input[@value='Search']'.</msg>
+<arg>${search_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-19T00:29:56.708500" elapsed="0.039632"/>
+</kw>
+<status status="PASS" start="2026-06-19T00:29:56.708251" elapsed="0.040002"/>
+</kw>
+<kw name="Get Result Text" owner="welcomePageKeyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${search_result_lbl}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-19T00:29:56.748859" elapsed="0.980117"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-06-19T00:29:57.737687" level="INFO">${result} = Sorry, there are no more seats available.</msg>
+<var>${result}</var>
+<arg>${search_result_lbl}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-19T00:29:57.729162" elapsed="0.008622"/>
+</kw>
+<return>
+<value>${result}</value>
+<status status="PASS" start="2026-06-19T00:29:57.737858" elapsed="0.000082"/>
+</return>
+<msg time="2026-06-19T00:29:57.738039" level="INFO">${search_result} = Sorry, there are no more seats available.</msg>
+<var>${search_result}</var>
+<status status="PASS" start="2026-06-19T00:29:56.748551" elapsed="0.989700"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-06-19T00:29:57.738952" level="FAIL">Sorry, there are no more seats available. != Seats available! And Call now on 0800 MARSAIR to book!</msg>
+<arg>${search_result}</arg>
+<arg>Seats available! And Call now on 0800 MARSAIR to book!</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2026-06-19T00:29:57.738511" elapsed="0.001086">Sorry, there are no more seats available. != Seats available! And Call now on 0800 MARSAIR to book!</status>
+</kw>
+<tag>TC10</tag>
+<status status="FAIL" start="2026-06-19T00:29:56.642088" elapsed="1.097940">Sorry, there are no more seats available. != Seats available! And Call now on 0800 MARSAIR to book!</status>
+</test>
+<kw name="Close The Website" owner="commonKeyword" type="TEARDOWN">
+<kw name="Capture Screenshot" owner="commonKeyword">
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-19T00:29:57.741820" level="INFO">${timestamp} = 1781803797</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-19T00:29:57.741587" elapsed="0.000294"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-19T00:29:58.041353" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshot_1781803797.png"&gt;&lt;img src="screenshot_1781803797.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshot_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-19T00:29:57.741972" elapsed="0.299576"/>
+</kw>
+<status status="PASS" start="2026-06-19T00:29:57.741433" elapsed="0.300208"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-19T00:29:58.041747" elapsed="0.069250"/>
+</kw>
+<status status="PASS" start="2026-06-19T00:29:57.741252" elapsed="0.369877"/>
+</kw>
+<status status="FAIL" start="2026-06-19T00:29:53.106303" elapsed="5.004871"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">TC10</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TC welcome">TC welcome</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

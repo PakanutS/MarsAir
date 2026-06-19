@@ -15,3 +15,17 @@ robot -d results testCases/
 ## View results
 results/report.html
 results/log.html
+
+project/
+├── Data/
+│   └── envData.robot
+├── keywords/
+│   ├── commonKeyword.robot
+│   ├── welcomePageKeyword.robot
+│   └── reportAnIssueKeyword.robot
+├── locators/
+│   ├── welcomePageLocator.robot
+│   └── reportAnIssueLocator.robot
+└── testCases/
+    ├── TC_WelcomePage.robot
+    └── TC_ReportAnIssue.robot

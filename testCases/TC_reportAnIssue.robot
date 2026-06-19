@@ -3,8 +3,8 @@ Resource    ../Data/envData.robot
 Resource        ../keywords/commonKeyword.robot
 Resource        ../keywords/reportAnIssuePageKeyword.robot
 Library           SeleniumLibrary
-Suite Setup     Open Marsair
-Suite Teardown  Delete Latest Issue
+Test Setup     Open Marsair
+Test Teardown  Delete Latest Issue
 
 *** Variables ***
 ${REPORT_TITLE}    issue1
