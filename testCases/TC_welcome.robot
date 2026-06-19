@@ -4,8 +4,8 @@ Resource        ../Data/envData.robot
 Resource        ../keywords/welcomePageKeyword.robot
 Resource        ../keywords/commonKeyword.robot
 
-Suite Setup     Open Marsair
-Suite Teardown  Close The Website
+Test Setup     Open Marsair
+Test Teardown  Close The Website
 
 *** Variables ***
 ${DATE_JUL_2026}     July
